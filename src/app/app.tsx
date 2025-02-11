@@ -68,7 +68,7 @@ function App() {
       content = (
         <div className="text-[#f77e85] items-center flex flex-col justify-center text-center px-4 py-8">
           <h1 className="text-4xl font-pacifico mb-4">LETS GOOO</h1>
-          <img className="w-full h-auto" src="https://y.yarn.co/09e889d0-6995-4bbe-a2a5-13a65af04796_text.gif"/>
+          <img className="w-full h-auto" src="/cameron.gif"/>
           <button className="bg-red-100 mt-4 px-4 py-2 rounded border-2 border-[#f77e85]" onClick={update}>PLAN TIME</button>
         </div>
       );
@@ -132,7 +132,7 @@ function App() {
             </label>
 
           </div>
-          <button className="bg-red-100 mt-4 px-4 py-2 rounded border-2 border-[#f77e85]" onClick={update}>Click here</button>
+          <button className="bg-red-100 mt-4 px-4 py-2 rounded border-2 border-[#f77e85]" onClick={update}>PLANS LOCKED (not really)</button>
         </div>
       );
       break;    
@@ -179,7 +179,7 @@ function App() {
               </label>
   
             </div>
-            <button className="bg-red-100 mt-4 px-4 py-2 rounded border-2 border-[#f77e85]" onClick={update}>Click here</button>
+            <button className="bg-red-100 mt-4 px-4 py-2 rounded border-2 border-[#f77e85]" onClick={update}>SANTA SAYS CLICK HERE</button>
           </div>
         );
         break;
@@ -195,14 +195,15 @@ function App() {
                 <img className="w-full h-auto mb-4" src="/sunrise.jpeg"/>      
 
               </div>
-              <button className="bg-red-100 mt-4 px-4 py-2 rounded border-2 border-[#f77e85]" onClick={update}>Click here</button>
+              <button className="bg-red-100 mt-4 px-4 py-2 rounded border-2 border-[#f77e85]" onClick={update}>WOOOOO</button>
             </div>
           );
           break;
           case 7:
             content = (
             <div className="text-[#f77e85] flex flex-col items-center min-h-screen py-4">
-              <h1 className="text-2xl font-pacifico text-center mb-4">Thats all I have I WILL SEE YOU SOON</h1>
+              <h1 className="text-2xl font-pacifico text-center mb-4">Thats all I have</h1>
+              <h1 className="text-2xl font-pacifico text-center mb-4">I WILL SEE YOU SOON</h1>
               <img className="w-full h-auto mb-4" src="https://31.media.tumblr.com/d0373cf4ac8f12009c20c684d8e1e2be/tumblr_mkekgj7ULd1qk48cjo1_500.gif"/>
               <h1 className="text-2xl font-pacifico text-center mb-4"></h1>
     
