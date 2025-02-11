@@ -185,7 +185,7 @@ function App() {
       content = (
         <div className="text-[#f77e85] flex flex-col items-center min-h-screen py-4">
           <img className="w-1/2 h-auto mb-4" src="https://media0.giphy.com/media/l3q2tzon8OCC7BqmY/200w.gif?cid=6c09b9522yvlapddan8800ji2ivc1qkshwg86pa143xwug7b&ep=v1_gifs_search&rid=200w.gif&ct=g"/>
-          <h1 className="text-4xl font-pacifico text-center mb-4">What do you want to do on Friday? (PICK AS MANY AS YOU WANT)</h1>
+          <h1 className="text-4xl font-pacifico text-center mb-4">What do you want to do on Friday?</h1>
           <h1 className="text-2xl font-pacifico text-center mb-4">(If you want me to pick just pick anything and we can talk about it later)</h1>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full max-w-3xl px-4">
