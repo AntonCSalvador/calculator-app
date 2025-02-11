@@ -6,6 +6,10 @@ function App() {
   const [number, setNumber] = useState(1);
   const [answer, setAnswer] = useState<string[]>([]);
   const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
+  const [bakingChoice, setBakingChoice] = useState<string | null>(null);
+  const [cookingChoice, setCookingChoice] = useState<string | null>(null);
+  const [outChoice, setOutChoice] = useState<string | null>(null);
+
 
   const sendEmail = () => {
     console.log("User selected:", selectedOptions);
@@ -62,6 +66,87 @@ function App() {
     console.log("answer ", answer);
   };
 
+  const renderBakingOptions = () => {
+    if (bakingChoice === "baking") {
+      return (
+        <div className="text-center">
+          <h3 className="text-2xl font-pacifico mt-4 mb-4">What do you want to bake?</h3>
+          <div className="text-center grid grid-cols-1 sm:grid-cols-3 gap-6 w-full max-w-3xl px-4">
+            <label className="flex flex-col items-center text-center text-[#f77e85]">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZ38zpM8nilHtqGpPHssbPHAEv3pfJYzTBRA&s" alt="red velvet cupcakes" className="w-24 h-24 object-cover mx-auto mb-2 sm:w-24 sm:h-24" />
+              
+              <div className="flex items-center">
+                <input type="checkbox" value="red velvet cupcakes" onChange={handleOptionChange} checked={selectedOptions.includes("red velvet cupcakes")} className="mr-2 accent-[#f77e85]" />
+                <span>Red Velvet Cupcakes</span>
+              </div>
+
+            </label>
+            <label className="flex flex-col items-center text-center text-[#f77e85]">
+              <img src="https://www.billyparisi.com/wp-content/uploads/2022/02/lava-cake-1.jpg" alt="lava cake" className="w-24 h-24 object-cover mx-auto mb-2 sm:w-24 sm:h-24" />
+              
+              <div className="flex items-center">
+                <input type="checkbox" value="lava cakes" onChange={handleOptionChange} checked={selectedOptions.includes("lava cakes")} className="mr-2 accent-[#f77e85]" />
+                <span>Lava Cakes</span>
+              </div>
+
+            </label>
+            <label className="flex flex-col items-center text-center text-[#f77e85]">
+              <img src="https://sallysbakingaddiction.com/wp-content/uploads/2024/03/homemade-tiramisu-recipe-600x900.jpg" alt="tiramisu" className="w-24 h-24 object-cover mx-auto mb-2 sm:w-24 sm:h-24" />
+              
+              <div className="flex items-center">
+                <input type="checkbox" value="tiramisu" onChange={handleOptionChange} checked={selectedOptions.includes("tiramisu")} className="mr-2 accent-[#f77e85]" />
+                <span>Tiramisu</span>
+              </div>
+
+            </label>
+          </div>
+
+        </div>
+      );
+    }
+    return null;
+  };
+
+  const renderCookingOptions = () => {
+    if (cookingChoice === "cooking") {
+      return (
+        <div className="text-center">
+          <h3 className="text-2xl font-pacifico mt-4 mb-4">What do you want to cook?</h3>
+          <div className="text-center grid grid-cols-1 sm:grid-cols-3 gap-6 w-full max-w-3xl px-4">
+            <label className="flex flex-col items-center text-center text-[#f77e85]">
+              <img src="https://hips.hearstapps.com/hmg-prod/images/how-to-cook-steak-in-the-oven-index-66a3eda7b9f52.jpg?crop=0.502xw:1.00xh;0.147xw,0&resize=1200:*" alt="Steak" className="w-24 h-24 object-cover mx-auto mb-2 sm:w-24 sm:h-24" />
+              
+              <div className="flex items-center">
+                <input type="checkbox" value="steak" onChange={handleOptionChange} checked={selectedOptions.includes("steak")} className="mr-2 accent-[#f77e85]" />
+                <span>Steak & Rice</span>
+              </div>
+
+            </label>
+            <label className="flex flex-col items-center text-center text-[#f77e85]">
+              <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcR3-mB6d-OGGZ92GnOVwTQULiUhZvHolQOvpawbzmW1RMr8IDwEc-INT403Po8Wx05YCnAPNC7qlqXlHWXGE8ppqGazERfGwp9kaYTIglY" alt="tikka" className="w-24 h-24 object-cover mx-auto mb-2 sm:w-24 sm:h-24" />
+              
+              <div className="flex items-center">
+                <input type="checkbox" value="masala" onChange={handleOptionChange} checked={selectedOptions.includes("masala")} className="mr-2 accent-[#f77e85]" />
+                <span>Chicken tikka masala</span>
+              </div>
+
+            </label>
+            <label className="flex flex-col items-center text-center text-[#f77e85]">
+              <img src="https://assets.teenvogue.com/photos/628d0964d78695ef5da24f30/1:1/w_1186,h_1186,c_limit/GettyImages-1389408711.jpg" alt="asian" className="w-24 h-24 object-cover mx-auto mb-2 sm:w-24 sm:h-24" />
+              <div className="flex items-center">
+                <input type="checkbox" value="asian" onChange={handleOptionChange} checked={selectedOptions.includes("asian")} className="mr-2 accent-[#f77e85]" />
+                <span>Asian food TBD</span>
+              </div>
+
+            </label>
+          </div>
+
+        </div>
+      );
+    }
+    return null;
+  };
+
   let content;
   switch (number) {
     case 1:
@@ -99,8 +184,8 @@ function App() {
     case 4:
       content = (
         <div className="text-[#f77e85] flex flex-col items-center min-h-screen py-4">
-          <img className="w-full h-auto mb-4" src="https://media0.giphy.com/media/l3q2tzon8OCC7BqmY/200w.gif?cid=6c09b9522yvlapddan8800ji2ivc1qkshwg86pa143xwug7b&ep=v1_gifs_search&rid=200w.gif&ct=g"/>
-          <h1 className="text-4xl font-pacifico text-center mb-4">What do you want to do on Friday?</h1>
+          <img className="w-1/2 h-auto mb-4" src="https://media0.giphy.com/media/l3q2tzon8OCC7BqmY/200w.gif?cid=6c09b9522yvlapddan8800ji2ivc1qkshwg86pa143xwug7b&ep=v1_gifs_search&rid=200w.gif&ct=g"/>
+          <h1 className="text-4xl font-pacifico text-center mb-4">What do you want to do on Friday? (PICK AS MANY AS YOU WANT)</h1>
           <h1 className="text-2xl font-pacifico text-center mb-4">(If you want me to pick just pick anything and we can talk about it later)</h1>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full max-w-3xl px-4">
@@ -125,7 +210,7 @@ function App() {
             <label className="flex flex-col items-center text-center text-[#f77e85]">
               <img src="https://i.pinimg.com/736x/21/0f/d9/210fd9b618d4063e30486c594f7004df.jpg" alt="Painting" className="w-24 h-24 object-cover mx-auto mb-2 sm:w-24 sm:h-24" />
               <div className="flex items-center gap-2">
-                <input type="checkbox" value="baking" onChange={handleOptionChange} checked={selectedOptions.includes("baking")} className="mr-2 accent-[#f77e85]" />
+                <input type="checkbox" value="baking" onChange={(e) => {handleOptionChange(e); setBakingChoice(e.target.checked ? "baking" : null);}} checked={selectedOptions.includes("baking")} className="mr-2 accent-[#f77e85]" />
                 <span>Baking Something CRAZY</span>
               </div>
             </label>
@@ -133,7 +218,7 @@ function App() {
             <label className="flex flex-col items-center text-center text-[#f77e85]">
               <img src="https://blog.frame.io/wp-content/uploads/2022/08/mif-the-bear-dream-sequence.jpg" alt="Painting" className="w-24 h-24 object-cover mx-auto mb-2 sm:w-24 sm:h-24" />
               <div className="flex items-center gap-2">
-                <input type="checkbox" value="cooking" onChange={handleOptionChange} checked={selectedOptions.includes("cooking")} className="mr-2 accent-[#f77e85]" />
+                <input type="checkbox" value="cooking" onChange={(e) => {handleOptionChange(e); setCookingChoice(e.target.checked ? "cooking" : null);}} checked={selectedOptions.includes("cooking")} className="mr-2 accent-[#f77e85]" />
                 <span>COOKING DINNER TOGETHER (no aprons)</span>
               </div>
             </label>
@@ -155,6 +240,8 @@ function App() {
             </label>
 
           </div>
+          {renderBakingOptions()}
+          {renderCookingOptions()}
           <button className="bg-red-100 mt-4 px-4 py-2 rounded border-2 border-[#f77e85] hover:bg-red-200" onClick={update}>PLANS LOCKED (not really)</button>
         </div>
       );
@@ -164,7 +251,7 @@ function App() {
         content = (
           <div className="text-[#f77e85] flex flex-col items-center min-h-screen py-4">
             <img className="w-full h-auto mb-4 ml-4 mr-4" src="https://media.tenor.com/fCuik1ZJIh0AAAAM/hug-ponyo.gif"/>
-            <h1 className="text-2xl font-pacifico text-center mb-4">Which gift do you want?</h1>
+            <h1 className="text-4xl font-pacifico text-center mb-4">Which gift do you want?</h1>
   
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full max-w-3xl px-4">
               <label className="flex flex-col items-center text-center text-[#f77e85]">
@@ -218,6 +305,7 @@ function App() {
                 <img className="w-full h-auto mb-4" src="/sunrise.jpeg"/>      
 
               </div>
+              {/* <button className="bg-red-100 mt-4 px-4 py-2 rounded border-2 border-[#f77e85] hover:bg-red-200" onClick={() => {update();}}>WOOOOO</button> */}
               <button className="bg-red-100 mt-4 px-4 py-2 rounded border-2 border-[#f77e85] hover:bg-red-200" onClick={() => {update(); sendEmail();}}>WOOOOO</button>
             </div>
           );
