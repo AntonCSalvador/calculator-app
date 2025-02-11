@@ -92,7 +92,7 @@ function App() {
             </label>
 
             <label className="flex flex-col items-center text-center text-[#f77e85]">
-              <img src="public/plaza.png" alt="Painting" className="w-24 h-24 object-cover mx-auto mb-2 sm:w-24 sm:h-24" />
+              <img src="/plaza.png" alt="Painting" className="w-24 h-24 object-cover mx-auto mb-2 sm:w-24 sm:h-24" />
               <div className="flex items-center gap-2">
                 <input type="checkbox" value="painting" onChange={handleOptionChange} checked={selectedOptions.includes("painting")} className="mr-2 accent-[#f77e85]" />
                 <span>Painting in Central Park</span>
@@ -189,10 +189,10 @@ function App() {
             <div className="text-[#f77e85] flex flex-col items-center min-h-screen py-4">
               <h1 className="text-2xl font-pacifico text-center mb-4">Thank you for being the greatest girlfriend of ALL TIME</h1>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full max-w-3xl px-4">
-                <img className="w-full h-auto mb-4" src="public/costume.jpg"/>      
-                <img className="w-full h-auto mb-4" src="public/tongue.jpg"/>      
-                <img className="w-full h-auto mb-4" src="public/pickleball.jpeg"/>      
-                <img className="w-full h-auto mb-4" src="public/sunrise.jpeg"/>      
+                <img className="w-full h-auto mb-4" src="/costume.jpg"/>      
+                <img className="w-full h-auto mb-4" src="/tongue.jpg"/>      
+                <img className="w-full h-auto mb-4" src="/pickleball.jpeg"/>      
+                <img className="w-full h-auto mb-4" src="/sunrise.jpeg"/>      
 
               </div>
               <button className="bg-red-100 mt-4 px-4 py-2 rounded border-2 border-[#f77e85]" onClick={update}>Click here</button>
