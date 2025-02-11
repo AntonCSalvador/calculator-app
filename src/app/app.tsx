@@ -43,29 +43,31 @@ function App() {
   switch (number) {
     case 1:
       content = (
-        <div className="text-[#f77e85] items-center">
-          <h1 className="text-2xl font-pacifico">HI RIA</h1>
+        <div className="text-[#f77e85] items-center flex flex-col justify-center text-center px-4 py-8">
+          <h1 className="text-4xl font-pacifico mb-4">HI RIA</h1>
           <img className="w-full h-auto" src="https://media.tenor.com/PJ4-hzHhDyEAAAAM/hi-hey.gif"/>
-          <h1 className="text-2xl font-pacifico">HAPPY RIATINES DAY 🤪</h1>
-          <button className="bg-red-100 mt-4 px-4 py-2 rounded border-2 border-[#f77e85]" onClick={update}>CLICK ME</button>
+          <h1 className="text-2xl font-pacifico mt-4">HAPPY RIATINES DAY 🤪</h1>
+          <button className="bg-red-100 mt-4 px-4 py-2 rounded border-2 border-[#f77e85]" onClick={update}>CLICK ME!</button>
         </div>
       );
       break;
     case 2:
       content = (
-        <div className="text-[#f77e85] items-center">
-          <h1 className="text-2xl font-pacifico">Will you be my valentine?</h1>
+        <div className="text-[#f77e85] items-center flex flex-col justify-center text-center px-4 py-8">
+          <h1 className="text-4xl font-pacifico mb-4">Will you be my valentine?</h1>
           <img className="w-full h-auto" src="https://media.tenor.com/l9Qh626faNgAAAAM/puss-in-boots-shrek.gif"/>
-          <button className="bg-red-100 mt-4 px-4 py-2 rounded border-2 border-[#f77e85]" onClick={update}>Yes</button>
-          <button className="bg-red-100 mt-4 px-4 py-2 rounded border-2 border-[#f77e85]" onClick={update}>Definitely</button>
-          <button className="bg-red-100 mt-4 px-4 py-2 rounded border-2 border-[#f77e85]" onClick={badEnding}>Definitely Not</button>
+          <div className="flex items-center gap-2">
+            <button className="bg-red-100 mt-4 px-4 py-2 rounded border-2 border-[#f77e85]" onClick={update}>Yes</button>
+            <button className="bg-red-100 mt-4 px-4 py-2 rounded border-2 border-[#f77e85]" onClick={update}>Definitely</button>
+            <button className="bg-red-100 mt-4 px-4 py-2 rounded border-2 border-[#f77e85]" onClick={badEnding}>Definitely Not</button>
+          </div>
         </div>
       );
       break;
     case 3:
       content = (
-        <div className="text-[#f77e85] items-center">
-          <h1 className="text-2xl font-pacifico">LETS GOOO</h1>
+        <div className="text-[#f77e85] items-center flex flex-col justify-center text-center px-4 py-8">
+          <h1 className="text-4xl font-pacifico mb-4">LETS GOOO</h1>
           <img className="w-full h-auto" src="https://y.yarn.co/09e889d0-6995-4bbe-a2a5-13a65af04796_text.gif"/>
           <button className="bg-red-100 mt-4 px-4 py-2 rounded border-2 border-[#f77e85]" onClick={update}>PLAN TIME</button>
         </div>
