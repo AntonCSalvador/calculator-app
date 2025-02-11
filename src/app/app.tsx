@@ -289,7 +289,7 @@ function App() {
               </label>
   
             </div>
-            <button className="bg-red-100 mt-4 px-4 py-2 rounded border-2 border-[#f77e85] hover:bg-red-200" onClick={update}>SANTA SAYS CLICK HERE</button>
+            <button className="bg-red-100 mt-4 px-4 py-2 rounded border-2 border-[#f77e85] hover:bg-red-200" onClick={update}>PICK AS MANY AS YOU WANT</button>
           </div>
         );
         break;
@@ -297,7 +297,7 @@ function App() {
         case 6:
           content = (
             <div className="text-[#f77e85] flex flex-col items-center min-h-screen py-4">
-              <h1 className="text-2xl font-pacifico text-center mb-4">Thank you for being the greatest girlfriend of ALL TIME</h1>
+              <h1 className="text-3xl font-pacifico text-center mb-4">Thank you for being the greatest girlfriend of ALL TIME</h1>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full max-w-3xl px-4">
                 <img className="w-full h-auto mb-4" src="/costume.jpg"/>      
                 <img className="w-full h-auto mb-4" src="/tongue.jpg"/>      
