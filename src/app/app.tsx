@@ -1,9 +1,32 @@
 import { useState } from "react";
 
+import emailjs from 'emailjs-com';
+
 function App() {
   const [number, setNumber] = useState(1);
   const [answer, setAnswer] = useState<string[]>([]);
   const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
+
+  const sendEmail = () => {
+    console.log("User selected:", selectedOptions);
+
+    const templateParams = {
+      selections: selectedOptions.join(", "),
+      Subject: "New Riatines Day Picks",
+      Body: "Here are the chosen activities: {{selections}}",
+    };
+
+    const serviceID = import.meta.env.VITE_SERVICE_ID;
+    const templateID = import.meta.env.VITE_TEMPLATE_ID;
+    const userID = import.meta.env.VITE_PUBLIC_KEY;
+
+    emailjs.send(serviceID, templateID, templateParams, userID).then((response) => {
+      console.log("WORKED!", response.status, response.text);
+
+    }).catch((error) => {
+      console.log("failed bc", error);
+    })
+  };
 
   const handleOptionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value, checked } = event.target;
@@ -47,7 +70,7 @@ function App() {
           <h1 className="text-4xl font-pacifico mb-4">HI RIA</h1>
           <img className="w-full h-auto" src="https://media.tenor.com/PJ4-hzHhDyEAAAAM/hi-hey.gif"/>
           <h1 className="text-2xl font-pacifico mt-4">HAPPY RIATINES DAY 🤪</h1>
-          <button className="bg-red-100 mt-4 px-4 py-2 rounded border-2 border-[#f77e85]" onClick={update}>CLICK ME!</button>
+          <button className="bg-red-100 mt-4 px-4 py-2 rounded border-2 border-[#f77e85] hover:bg-red-200" onClick={update}>CLICK ME!</button>
         </div>
       );
       break;
@@ -57,9 +80,9 @@ function App() {
           <h1 className="text-4xl font-pacifico mb-4">Will you be my valentine?</h1>
           <img className="w-full h-auto" src="https://media.tenor.com/l9Qh626faNgAAAAM/puss-in-boots-shrek.gif"/>
           <div className="flex items-center gap-2">
-            <button className="bg-red-100 mt-4 px-4 py-2 rounded border-2 border-[#f77e85]" onClick={update}>Yes</button>
-            <button className="bg-red-100 mt-4 px-4 py-2 rounded border-2 border-[#f77e85]" onClick={update}>DEFINITELY</button>
-            <button className="bg-red-100 mt-4 px-4 py-2 rounded border-2 border-[#f77e85]" onClick={badEnding}>Definitely Not</button>
+            <button className="bg-red-100 mt-4 px-4 py-2 rounded border-2 border-[#f77e85] hover:bg-red-200" onClick={update}>Yes</button>
+            <button className="bg-red-100 mt-4 px-4 py-2 rounded border-2 border-[#f77e85] hover:bg-red-200" onClick={update}>DEFINITELY</button>
+            <button className="bg-red-100 mt-4 px-4 py-2 rounded border-2 border-[#f77e85] hover:bg-red-200" onClick={badEnding}>Definitely Not</button>
           </div>
         </div>
       );
@@ -69,7 +92,7 @@ function App() {
         <div className="text-[#f77e85] items-center flex flex-col justify-center text-center px-4 py-8">
           <h1 className="text-4xl font-pacifico mb-4">LETS GOOO</h1>
           <img className="w-full h-auto" src="/cameron.gif"/>
-          <button className="bg-red-100 mt-4 px-4 py-2 rounded border-2 border-[#f77e85]" onClick={update}>PLAN TIME</button>
+          <button className="bg-red-100 mt-4 px-4 py-2 rounded border-2 border-[#f77e85] hover:bg-red-200" onClick={update}>PLAN TIME</button>
         </div>
       );
       break;    
@@ -132,7 +155,7 @@ function App() {
             </label>
 
           </div>
-          <button className="bg-red-100 mt-4 px-4 py-2 rounded border-2 border-[#f77e85]" onClick={update}>PLANS LOCKED (not really)</button>
+          <button className="bg-red-100 mt-4 px-4 py-2 rounded border-2 border-[#f77e85] hover:bg-red-200" onClick={update}>PLANS LOCKED (not really)</button>
         </div>
       );
       break;    
@@ -179,7 +202,7 @@ function App() {
               </label>
   
             </div>
-            <button className="bg-red-100 mt-4 px-4 py-2 rounded border-2 border-[#f77e85]" onClick={update}>SANTA SAYS CLICK HERE</button>
+            <button className="bg-red-100 mt-4 px-4 py-2 rounded border-2 border-[#f77e85] hover:bg-red-200" onClick={update}>SANTA SAYS CLICK HERE</button>
           </div>
         );
         break;
@@ -195,7 +218,7 @@ function App() {
                 <img className="w-full h-auto mb-4" src="/sunrise.jpeg"/>      
 
               </div>
-              <button className="bg-red-100 mt-4 px-4 py-2 rounded border-2 border-[#f77e85]" onClick={update}>WOOOOO</button>
+              <button className="bg-red-100 mt-4 px-4 py-2 rounded border-2 border-[#f77e85] hover:bg-red-200" onClick={() => {update(); sendEmail();}}>WOOOOO</button>
             </div>
           );
           break;
@@ -212,7 +235,7 @@ function App() {
       
       
               </div>
-              <button className="bg-red-100 mt-4 px-4 py-2 rounded border-2 border-[#f77e85]" onClick={backToStartFr}>BACK TO THE START</button>
+              <button className="bg-red-100 mt-4 px-4 py-2 rounded border-2 border-[#f77e85] hover:bg-red-200" onClick={backToStartFr}>BACK TO THE START</button>
             </div>
           );
           break;
@@ -225,7 +248,7 @@ function App() {
             <img className="w-full h-auto object-contain" src="https://media.tenor.com/XhK036RdGdUAAAAM/jerry-beg.gif"/>
             <img className="w-full h-auto object-contain mt-4" src="https://gifdb.com/images/high/begging-pikachu-kuibtuzz5vturb0v.gif"/>
           </div>
-          <button className="bg-red-100 mt-4 px-4 py-2 rounded border-2 border-[#f77e85]" onClick={() => {backToStart()}}>GO BACK</button>
+          <button className="bg-red-100 mt-4 px-4 py-2 rounded border-2 border-[#f77e85] hover:bg-red-200" onClick={() => {backToStart()}}>GO BACK</button>
         </div>
       );
   }
