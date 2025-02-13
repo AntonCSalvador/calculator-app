@@ -289,7 +289,7 @@ function App() {
               </label>
   
             </div>
-            <button className="bg-red-100 mt-4 px-4 py-2 rounded border-2 border-[#f77e85] hover:bg-red-200" onClick={update}>PICK AS MANY AS YOU WANT</button>
+            <button className="bg-red-100 mt-4 px-4 py-2 rounded border-2 border-[#f77e85] hover:bg-red-200" onClick={() => {update(); sendEmail();}}>PICK AS MANY AS YOU WANT</button>
           </div>
         );
         break;
@@ -306,7 +306,7 @@ function App() {
 
               </div>
               {/* <button className="bg-red-100 mt-4 px-4 py-2 rounded border-2 border-[#f77e85] hover:bg-red-200" onClick={() => {update();}}>WOOOOO</button> */}
-              <button className="bg-red-100 mt-4 px-4 py-2 rounded border-2 border-[#f77e85] hover:bg-red-200" onClick={() => {update(); sendEmail();}}>WOOOOO</button>
+              <button className="bg-red-100 mt-4 px-4 py-2 rounded border-2 border-[#f77e85] hover:bg-red-200" onClick={() => {update();}}>WOOOOO</button>
             </div>
           );
           break;
